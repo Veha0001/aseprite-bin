@@ -75,4 +75,4 @@ xcopy /E /Q /Y build\bin\data aseprite-%ASEPRITE_VERSION%\data\
 7z a -r aseprite-%ASEPRITE_VERSION%.zip aseprite-%ASEPRITE_VERSION% || echo failed to create output zip file && exit /b
 
 
-echo "ASEPRITE_VERSION=%ASEPRITE_VERSION%" >> $GITHUB_OUTPUT
+echo ASEPRITE_VERSION=%ASEPRITE_VERSION% >> %GITHUB_OUTPUT%

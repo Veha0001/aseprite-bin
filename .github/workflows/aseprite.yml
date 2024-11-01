@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.build.outputs.ASEPRITE_VERSION }}
-          name: aseprite-${{ steps.build.outputs.ASEPRITE_VERSION }}
+          name: Aseprite ${{ steps.build.outputs.ASEPRITE_VERSION }}
           files: ${{ steps.build.outputs.Archive }}
           body: |
             [Aseprite ${{ steps.build.outputs.ASEPRITE_VERSION }}](https://github.com/aseprite/aseprite/releases/tag/${{ steps.build.outputs.ASEPRITE_VERSION }})

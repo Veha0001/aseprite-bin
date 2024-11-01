@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Build
+      - name: build
         id: build
         shell: cmd
         run: call build.cmd >> $GITHUB_OUTPUT

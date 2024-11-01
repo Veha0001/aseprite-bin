@@ -23,7 +23,7 @@ jobs:
         with:
           tag_name: ${{ steps.build.outputs.ASEPRITE_VERSION }}
           name: aseprite-${{ steps.build.outputs.ASEPRITE_VERSION }}
-          files: ./aseprite-${{ steps.build.outputs.ASEPRITE_VERSION }}.zip
+          files: aseprite-${{ steps.build.outputs.ASEPRITE_VERSION }}.zip
           body: |
             [Aseprite ${{ steps.build.outputs.ASEPRITE_VERSION }}](https://github.com/aseprite/aseprite/releases/tag/${{ steps.build.outputs.ASEPRITE_VERSION }})
       

@@ -12,7 +12,7 @@ jobs:
       - name: build
         id: build
         shell: cmd
-        run: call build.cmd >> $GITHUB_OUTPUT
+        run: call build.cmd
         
       - name: Upload Release 
         id: release

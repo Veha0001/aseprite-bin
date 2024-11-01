@@ -19,7 +19,7 @@ where /Q cl.exe || (
 rem *** ninja
 
 where /q ninja.exe || (
-  curl -LOsf https://github.com/ninja-build/ninja/releases/download/v1.11.0/ninja-win.zip || exit /b 1
+  curl -LOsf https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-win.zip || exit /b 1
   7z x -bb0 -y ninja-win.zip 1>nul 2>nul || exit /b 1
   del ninja-win.zip 1>nul 2>nul
 )
@@ -32,19 +32,9 @@ for /F "delims=" %%v in ('"curl -sfL https://api.github.com/repos/aseprite/asepr
 )
 
 
-rem **** checking if release is already built
-
-curl -sfLo nul https://api.github.com/repos/mmozeiko/aseprite-bin/releases/tags/%ASEPRITE_VERSION%
-if %ERRORLEVEL% EQU 0 (
-  echo release already exists, exiting
-  exit /b 0
-)
-
-
 rem **** cloning asesprite repo
 
 git clone --quiet -c advice.detachedHead=false --no-tags --recursive --depth=1 -b "%ASEPRITE_VERSION%" https://github.com/aseprite/aseprite.git || echo "failed to clone repo" && exit /b 1
-python -c "v = open('aseprite/src/ver/CMakeLists.txt').read(); open('aseprite/src/ver/CMakeLists.txt', 'w').write(v.replace('1.x-dev', '%ASEPRITE_VERSION%'[1:]))"
 
 
 rem *** downloading skia

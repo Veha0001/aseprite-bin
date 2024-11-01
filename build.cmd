@@ -35,7 +35,7 @@ for /F "delims=" %%v in ('"curl -sfL https://api.github.com/repos/aseprite/asepr
 rem **** cloning asesprite repo
 
 git clone --quiet -c advice.detachedHead=false --no-tags --recursive --depth=1 -b "%ASEPRITE_VERSION%" https://github.com/aseprite/aseprite.git || echo "failed to clone repo" && exit /b 1
-
+python -c "v = open('aseprite/src/ver/CMakeLists.txt').read(); open('aseprite/src/ver/CMakeLists.txt', 'w').write(v.replace('1.x-dev', '%ASEPRITE_VERSION%'[1:]))"
 
 rem *** downloading skia
 
